@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="content-block">
+    <p>Oops!</p>
+    <p>Access is denied. You have no permission to do that.</p>
+    <p>Only CEO of SKS&CO. CONSULTING GROUP can add employees and delete tasks.</p>
+</div>
+    <div><a class="button1" href="{% url 'home' %}">Return home</a></div>
+{% endblock %}

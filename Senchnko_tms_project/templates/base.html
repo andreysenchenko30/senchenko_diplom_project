@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <style>
+*{
+font-family: 'Montserrat',sans-serif;
+text-align: center;
+margin-top: 20px;
+margin-bottom: 20px;
+}
+.button1 {
+    background-color: white;
+    color: black;
+    border: 2px solid #4CAF50;
+    margin-top: 40px;
+    margin-left: 10px;
+    margin-right: 10px;
+    box-sizing: inherit;
+    padding: 5px;
+}
+input{
+  text-align: left;
+  padding: 12px 20px;
+  margin: 8px 0;
+  max-width: 300px;
+  max-height: 30px;
+  border: 1px solid #555;
+  outline: none;
+}
+#header{
+	width: 100%;
+	background: #000;
+	display: flex;
+	position: relative;
+    margin-top: 0px;
+}
+.line{
+    --wp-admin-theme-color: #007cba;
+--wp-admin-theme-color-darker-10: #006ba1;
+--wp-admin-theme-color-darker-20: #005a87;
+font-family: 'Montserrat',sans-serif;
+-webkit-font-smoothing: antialiased;
+box-sizing: border-box;
+max-width: 800px;
+align-self: center;
+margin-left: auto;
+margin-right: auto;
+text-decoration: none;
+text-align: center;
+transition: .3s linear;
+background: #f5f5f5;
+color: #303030;
+display: block;
+line-height: 1.2;
+margin-bottom: 5px;
+padding: 5px 12px;
+border-radius: 3px;
+}
+.logo{
+    	text-transform: uppercase;
+	color: #fff;
+	font-weight: 800;
+	font-size: 24px;
+	margin-top: 10px;
+	margin-left: 1%;
+    margin-bottom: 10px;
+    text-decoration: none;
+}
+.line2{
+    text-align: left;
+    margin-left: 315px;
+}
+#Title {
+    font-size: 28px;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: left;
+    margin-left: 15px;
+    margin-top: 20px;
+}
+#our_tasks{
+    font-size: 28px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+A {
+    text-decoration: none;
+}
+A:visited{
+    color: currentColor;
+}
+.content-block{
+    font-size: 20px;
+}
+    </style>
+</head>
+<body>
+<div id="header">
+    <span class="logo"><a class="link" href="{% url 'home' %}">SKS & Co. Consulting Group</a></span>
+</div>
+<div id="content">
+      {% if user.is_authenticated %}
+        <p id="Title">Hi {{ user.username }}!
+        <span><a class="link" href="{% url 'logout' %}">Log out</a></span></p>
+      {% else %}
+        <p>You are not logged in.</p>
+        <a class="link" href="{% url 'login' %}">Log In</a>
+      {% endif %}
+    {% block content %}
+    {% endblock content %}
+</div>
+</body>
+</html>

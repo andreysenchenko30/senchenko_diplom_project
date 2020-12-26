@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+ 
+{% block content %}
+ <div>
+ <p>
+     Hello! Welcome home! Here are some tasks for you on today!
+ </p>
+ <p id = 'our_tasks'>Our Tasks:</p>
+ <p>Number of active tasks: {{ tasks_number }}</p>
+ <p>Total projects budget: {{ total_budget }} $</p>
+ <p>{% for employee in employees %}</p>
+     <p class = 'line'>{{ employee }}</p>
+        {% for task in tasks %}
+            {% if employee == task.employee_id %}
+            <p class = 'line2'>{{ task }} <a href= {% url 'del_view' a_id=task.id %}> (Удалить) </a></p>
+            {% endif %}
+        {% endfor %}
+    {%  endfor %}
+     <p><a class="button1" href= {% url 'create_employee'%}> Create an employee </a><a class="button1" href= {% url 'create_task'%}> Create a task </a>
+<a class="button1" href= {% url 'create_message'%}> Create an email message </a></p>
+ </div>
+{% endblock content %}

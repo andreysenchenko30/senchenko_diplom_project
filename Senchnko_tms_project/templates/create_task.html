@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+    {% block content %}
+    <form action ="{% url 'add_task' %}" method = "POST">
+        {% csrf_token %}
+        <p>
+            <label class="field" for = "description">Description</label>
+            <input id = "description" name="description" placeholder="Find investors">
+        </p>
+        <p>
+            <label class="field" for = "deadline">Deadline</label>
+            <input id = "deadline" name="deadline" placeholder="01.01.2021">
+        </p>
+        <p>
+            <label class="field" for="employee_id">Employee</label>
+            <label>
+            <select name="employee_id">
+            <option>Choose employee</option>
+            {% for employee in employees %}
+                <option value = {{employee.id}}>{{employee}}</option>
+            {% endfor %}
+          </select>
+            </label>
+        </p>
+    <p><label class="field" for = "project_budget">Project budget (in $)</label>
+        <input id = "project_budget" name="project_budget" placeholder="20000"></p>
+      <div class="select-arrow"></div>
+    <p>
+    <button class="button1" type="submit"> Create! </button>
+    </p>
+        </form>
+    {% endblock %}

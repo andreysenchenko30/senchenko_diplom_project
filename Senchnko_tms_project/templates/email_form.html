@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+    <form action ="{% url 'send' %}" method = "POST">
+        {% csrf_token %}
+        <p>
+            <label class="field" for = "Email">Recipient</label>
+            <input id = "recipient" name="to_email" placeholder="ivan_ivanovich@gmail.com">
+        </p>
+        <p>
+            <label class="field" for = "Subject">Subject</label>
+            <input id = "subject" name="subject" placeholder="Commercial offer">
+        </p>
+
+        <p>
+            <label class="field" for = "Message">Message</label>
+            <input id = "message" name="message" placeholder="Good afternoon! Here is our commercial offer.">
+        </p>
+    <p>
+    <button class="button1" type="submit"> Send! </button>
+    </p>
+        </form>
+{% endblock %}

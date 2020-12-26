@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+    {% block content %}
+    <form action ="{% url 'add_employee' %}" method = "POST">
+        {% csrf_token %}
+        <p>
+            <label class="field" for = "description">First name</label>
+            <input id = "first_name" name="first_name" placeholder="Vasily">
+        </p>
+        <p>
+            <label class="field" for = "deadline">Last name</label>
+            <input id = "last_name" name="last_name" placeholder="Ivanov">
+        </p>
+        <p>
+            <label class="field" for = "age">Age</label>
+            <input id = "age" name="age" placeholder="44">
+        </p>
+        <p>
+            <label class="field" for = "position">Position</label>
+            <input id = "position" name="position" placeholder="Head of marketing department">
+        </p>
+    <p>
+    <button class="button1" type="submit"> Create! </button>
+    </p>
+        </form>
+    {% endblock %}
