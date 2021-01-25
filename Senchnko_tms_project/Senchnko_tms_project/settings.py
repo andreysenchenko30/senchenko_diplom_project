@@ -36,7 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'accounts.apps.AccountsConfig',
-    'some_app.apps.SomeAppConfig'
+    'crm_main_page.apps.SomeAppConfig'
 ]
 
 MIDDLEWARE = [

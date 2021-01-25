@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class SomeAppConfig(AppConfig):
-    name = 'some_app'
+    name = 'crm_main_page'

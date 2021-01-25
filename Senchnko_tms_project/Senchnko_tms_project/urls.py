@@ -14,23 +14,24 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
-from django.conf.urls import url
 from django.urls import include, path
 from django.contrib import admin
-from some_app.views import home_page, del_task, create_task, add_task, create_employee, \
-    add_employee, access_denied, send, create_message
+from crm_main_page.views import HomePageView, DeleteTaskView, CreateTaskView, AddTaskView, CreateEmployeeView, \
+    AddEmployeeView, AccessDenied, SendEmailView, CreateMessageView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/', include('accounts.urls')),
-    path('home/', home_page, name='home'),
-    url(r'^(?P<a_id>\d+)/del', del_task, name='del_view'),
-    path('create_task/', create_task, name='create_task'),
-    path('add_task', add_task, name='add_task'),
-    path('create_employee/', create_employee, name='create_employee'),
-    path('add_employee', add_employee, name='add_employee'),
-    path('access_denied/', access_denied, name='access_denied'),
-    path('send/', send, name='send'),
-    path('create_message', create_message, name='create_message'),
+    path('home/', HomePageView.as_view(), name='home'),
+    path('<pk>/remove', DeleteTaskView.as_view(), name='del_view'),
+    path('create_task/', CreateTaskView.as_view(), name='create_task'),
+    path('add_task', AddTaskView.as_view(), name='add_task'),
+    path('create_employee/', CreateEmployeeView.as_view(), name='create_employee'),
+    path('add_employee', AddEmployeeView.as_view(), name='add_employee'),
+    path('access_denied/', AccessDenied.as_view(), name='access_denied'),
+    path('send/', SendEmailView.as_view(), name='send'),
+    path('create_message', CreateMessageView.as_view(), name='create_message'),
+    # path('more_to_less', SortMoreToLess.as_view(), name='more_to_less'),
+    # path('less_to_more', SortLessToMore.as_view(), name='less_to_more'),
 ]

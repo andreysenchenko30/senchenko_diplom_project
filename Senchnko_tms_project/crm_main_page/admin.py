@@ -1,5 +1,5 @@
 from django.contrib import admin
-from some_app.models import Employee, Task
+from crm_main_page.models import Employee, Task
 
 
 # Register your models here.

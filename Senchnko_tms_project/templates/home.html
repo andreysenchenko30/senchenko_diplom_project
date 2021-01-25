@@ -12,7 +12,7 @@
      <p class = 'line'>{{ employee }}</p>
         {% for task in tasks %}
             {% if employee == task.employee_id %}
-            <p class = 'line2'>{{ task }} <a href= {% url 'del_view' a_id=task.id %}> (Удалить) </a></p>
+            <p class = 'line2'>{{ task }} <a href= {% url 'del_view' pk=task.id %}> (Удалить) </a></p>
             {% endif %}
         {% endfor %}
     {%  endfor %}
